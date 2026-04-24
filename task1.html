@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+
+    <script>
+        // Lesson 1 (js syntax, variables ..)
+        // Dərs 1 (JS sintaksisi, dəyişənlər və s.)
+
+        // 1. Declare 2 number type variable and assign value, then show output on the console
+        //    2 ədəd number tipli dəyişən elan et və onlara dəyər ver, sonra nəticəni konsolda göstər
+
+        const d = 7
+        const e = 5
+
+        console.log('d', d) // 7
+        console.log('e', e) // 5
+
+        // 2. Declare 3 string type variable and show result as alert message
+        //    3 ədəd string tipli dəyişən elan et və nəticəni alert mesajı kimi göstər
+
+        const str1 = 'hello'
+        const str2 = 'my'
+        const str3 = 'friends'
+
+        alert(str1)
+        alert(str2)
+        alert(str3)
+
+        // 3. Declare 4 variable and assign different type of datas, show all types on the console
+        //    4 dəyişən elan et və onlara fərqli tipli dəyərlər ver, bütün tipləri konsolda göstər
+
+        const strValue = "Azerbaycan"
+        const intValue = 5
+        const arrayValue = ["Mercedes", "Ford", "BMW"];
+        const boolValue = true
+
+        console.log('strValue', strValue)
+        console.log('intValue', intValue)
+        console.log('arrayValue', arrayValue)
+        console.log('boolValue', boolValue)
+
+        // 4. Declare 2 variable and show the multiple result on the console
+        //    2 dəyişən elan et və onların hasilini (vurmanı) konsolda göstər
+
+        const a = 8
+        const b = 12
+
+        const c = a * b
+
+        console.log('a * b = ', c)
+
+        // 5. You have 2 variable, first is number type second is string type. Show the type which is sum of these variables
+        //    2 dəyişənin var: biri number, digəri string tipindədir. Bu dəyişənlərin cəminin tipini göstər
+
+        const top1 = 15
+        const top2 = '20'
+
+        const cem = top1 + top2
+
+        console.log('cem', typeof cem);
+
+
+        // 6. Declare 2 variable, which is contain the same value but different type. Show the result and type of these variables summary
+        //    Eyni dəyərə malik, amma fərqli tipdə olan 2 dəyişən elan et. Onların nəticəsini və tiplərini birlikdə göstər
+
+        const difVal1 = 15
+        const difVal2 = "Hello!"
+
+        console.log('difVal1', difVal1, 'difVal2', difVal2);
+        console.log('typeof difVal1 => ', typeof difVal1);
+        console.log('typeof difVal2 => ', typeof difVal2);
+
+
+        // 7. Create a variable, named y, assigning the value 50 to it
+        //    y adlı dəyişən yarat və ona 50 dəyəri ver
+
+        // const y = 50;
+
+        let y;
+        y = 50
+        console.log('y', y)
+
+
+        // 8. Create a variable, named fruitName, assigning the value Orange to it
+        //    fruitName adlı dəyişən yarat və ona "Orange" dəyəri ver
+
+        const fruitName = "Orange"
+
+        console.log('fruitName', fruitName)
+
+        // 9. Show the sum of 3+10, applying the following two variables: x and y
+        //    x və y dəyişənlərindən istifadə edərək 3 + 10 cəmini göstər
+
+        const x1 = 3
+        const y1 = 10
+
+        console.log('x1 + y1 =', x1 + y1);
+
+
+        // 10. Create a variable, named z, assigning x + y to it. Then, show the result in an alert box
+        //     z adlı dəyişən yarat və ona x + y dəyərini ver. Sonra nəticəni alert ilə göstər
+
+        const x = 20
+        const y2 = 40
+        const z = x + y2
+        console.log('z', x + y2);
+        alert(x + y2);
+
+
+        // 11. On a single line, declare three variables with the given names and values: firstName = "David" lastName = "Johnson" age = 41
+        //     Bir sətirdə aşağıdakı dəyişənləri elan et və dəyər ver: firstName = "David", lastName = "Johnson", age = 41
+
+        const firstName = "David";
+        const lastName = "Johnson";
+        const age = 41;
+
+        console.log(firstName, lastName, age)
+
+        // 12. Multiply 5 with 7, alerting the result
+        //     5 ilə 7-ni vur və nəticəni alert ilə göstər
+
+        console.log(5 * 7);
+        alert(5 * 7);
+
+
+        // 13. Alert the reminder, once 13 is divided by 7
+        //     13-ün 7-yə bölünməsindən qalan qalığı (remainder) alert ilə göstər
+
+        alert(13 % 7)
+        console.log(13 % 7)
+
+        // 14. Apply the right assignment operator, which will result in x being 20 (the same as x = x + y)
+        //     Elə düzgün mənimsətmə operatoru istifadə et ki, nəticədə x = x + y kimi x 20 olsun
+
+        let x3;
+        let y3;
+        x3 = 5
+        y3 = 15
+        x3 += y3
+
+        console.log('x3', x3)
+
+        // 15. Apply the right assignment operator, which will result in x, being 30
+        //     Elə düzgün mənimsətmə operatoru istifadə et ki, nəticədə x 30 olsun
+
+        let x4 = 5;
+        let y4 = 6;
+        x4 *= y4
+        console.log('x4', x4)
+
+        // 16. Create variables which contain values in all types, and output the result and types on the console
+        //     Bütün mümkün tiplərdə dəyərlər saxlayan dəyişənlər yarat və nəticələri və tipləri konsolda göstər
+
+        const tip1 = 'String';
+        const tip2 = 10;
+        const tip3 = 12345678901234567890n;
+        const tip4 = ['alma', 'armud', 'gilas'];
+        const tip5 = { name: "ad", surname: "soyad", age: 15 }
+        const tip6 = true;
+        const tip7 = new Date("2026-04-24");
+        const tip8 = null;
+        let tip9;
+        let tip10 = Symbol('a');
+
+        console.log('tip1', tip1);
+        console.log('tip2', tip2);
+        console.log('tip3', tip3);
+        console.log('tip4', tip4);
+        console.log('tip5', tip5);
+        console.log('tip6', tip6);
+        console.log('tip7', tip7);
+        console.log('tip8', tip8);
+        console.log('tip9', tip9);
+        console.log('tip10', tip10);
+        
+
+
+    </script>
+</body>
+
+</html>
