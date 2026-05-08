@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TASK 2</title>
+</head>
+
+<body>
+    <h1>TASK 2</h1>
+
+    <script>
+        //  1.  5-dən 26-ya qədər ədədlərin ədədi ortasını tapıb çap edin2. 10 ilə 100 arasındakı ədədlərdən yalnız cüt olanları mətn formatında ekrana çıxarın.
+
+        let cem = 0;
+        let say = 0;
+        let edediOrta = 0;
+        for (let i = 5; i <= 26; i++) {
+            cem += i;
+            say++;
+        }
+        edediOrta = cem / say
+        console.log('1-ci sual: ededi orta = ' + edediOrta);
+
+
+        // 2. 0-dan 40-a qədər ədədlər içərisindən 10 a bölünən ədədləri ekrana çıxarın
+
+        for (let i = 0; i <= 40; i++) {
+            if (i % 10 === 0) {
+                console.log('2-ci sual: i = ' + i);
+            }
+        }
+
+        // 3. Hər hansı bir ədəd daxil edin və onun 3-ə bölünən olub olmadığını yoxlayan bir alqorithm yazın
+
+        let requestNumber = prompt('Hər hansı bir ədəd daxil edin')
+        if (requestNumber) {
+            if (requestNumber % 3 === 0) {
+                console.log('3-cu sual: Eded 3-e qaliqsiz bolunur')
+            } else {
+                console.log('3-cu sual: Eded 3-e qaliqli bolunur')
+            }
+        } else {
+            console.log('3-cu sual: Eded daxil edilmeyib')
+        }
+
+
+
+        // 4.  30 ilə 40 arasındakı ədədlərin cəmi ilə hasilinin ədədi ortasını tapın
+
+        let cem1 = 0;
+        let hasil = 1;
+        let edediOrta1 = 0;
+        for (let i = 31; i < 40; i++) {
+            cem1 += i;
+            hasil *= i
+        }
+        edediOrta1 = (cem1 + hasil) / 2
+        console.log('4-cu sual: ededi orta = ' + edediOrta1);
+
+
+        // 5. 0-dan 100-ə qədər ədədlərdən 10 və ya 70 istisna olmaqla digərlərini ekranda string formasında çap edin
+
+        for (let i = 0; i <= 100; i++) {
+            if (i === 10 || i === 70) {
+                continue;
+            }
+            console.log('5-ci sual: i = ' + String(i));
+        }
+
+
+        //    6. 0 - dan 100 - ə qədər ədədlərdən 20dən kiçik və 50 - dən böyük olanların ayrılıqda cəmini hesablayəın
+        let kicikCem = 0;
+        let boyukCem = 0;
+        for (let i = 0; i <= 100; i++) {
+            if (i < 20) {
+                kicikCem += i;
+            }
+            if (i > 50) {
+                boyukCem += i;
+            }
+        }
+        console.log('6-ci sual: 20den kicik ededlerin cemi = ' + kicikCem);
+        console.log('6-ci sual: 50den boyuk ededlerin cemi = ' + boyukCem);
+
+
+
+        //    7. 1 - den 9 - a qeder olan ededleri ekrana cixarin
+
+
+        for (let i = 1; i <= 9; i++) {
+            console.log('7-ci sual: i = ' + i);
+        }
+
+
+        //    8. 1 - den 50 - e qeder olan ededlerin cemini tapin
+        let cem2 = 0;
+
+        for (let i = 1; i <= 50; i++) {
+            cem2 += i
+        }
+        console.log('8-ci sual: 1 - den 50 - e qeder olan ededlerin cemi = ' + cem2);
+
+
+        //    9. 2 ve 36 arasinda olan ededlerden 4 ve 17 - den baska hamisini ekrana cixarin
+
+        for (let i = 3; i < 36; i++) {
+            if (i === 4 || i === 17) {
+                continue;
+            }
+            console.log('9-cu sual: i = ' + i);
+        }
+
+
+
+    </script>
+</body>
+
+</html>
