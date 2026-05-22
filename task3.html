@@ -1,0 +1,341 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TASK 3</title>
+</head>
+
+<body>
+    <h1>TASK 3</h1>
+
+    <script>
+        // 1. 2 ədədin fərqini hesablayan function yazın,əgər 1 - ci rəqəm ikincidən böyükdürsə.
+
+        function calculateDifference() {
+            let a = 100;
+            let b = 40;
+            let c;
+            if (a > b) {
+                c = a - b;
+                console.log('c', c) // output 60
+            }
+        }
+        calculateDifference()
+
+
+        // 2. Əgər ədəd cüt ədəddirsə, onun kök altı dəyərini hesablayan function yazın
+
+        function calculateSquare() {
+            let number = 16;
+            let sqrt;
+            if (number % 2 == 0) {
+                sqrt = Math.sqrt(number);
+                console.log('sqrt', sqrt); // output 4    
+            }
+        }
+
+        calculateSquare()
+        // 3. Ekrandan daxil edilən(promp) data - nın cüt olub olmadığını yoxlayan metod yazın.
+
+        function checkEven() {
+            let number = prompt("Ededi daxil edin")
+            if (number % 2 == 0) {
+                console.log(number + "- cut ededdir")
+            } else {
+                console.log(number + "- tek ededdir")
+            }
+
+        }
+        // checkEven() 
+
+        // 4. Ekrandan daxil edən rəqəmin tipinin Nan olub olmadığını yoxlayan method yazın
+
+        function checkNaN() {
+            let val = prompt("Ededi daxil edin")
+            if (isNaN(val)) {
+                console.log(val + " deyeri NaN tipindedir")
+            } else {
+                console.log(val + " deyeri NaN tipinde deyildir")
+            }
+        }
+
+        // checkNaN()
+
+
+        //         5. Bir mətndə olan boşluqların sayını hesablayan function yazın.
+
+        function countSpace() {
+            const text = "Hello my world!!!"
+            let count = 0;
+            for (let i = 0; i < text.length; i++) {
+                if (text[i] === " ") {
+                    count++;
+                }
+            }
+
+            console.log('count', count);
+        }
+
+        countSpace()  // output: 2
+
+        //         6. Əgər mətn mövcuddursa onun icərisindəki, -lərin sayını hesablayan method yazın.
+
+
+        function countHyphen() {
+            const text = "Hello-my-world!!!"
+            let count = 0;
+            if (text) {
+                for (let i = 0; i < text.length; i++) {
+                    if (text[i] === "-") {
+                        count++;
+                    }
+                }
+
+                console.log('count - ', count);
+            }
+        }
+
+        countHyphen()   // output: 2
+
+
+        // 7. Mətnin 2 və 6 - cı indexində olan hissəni kəsib ekrana çıxarın
+
+        function cutText() {
+            const text = 'Hello-world!'
+            const result = text.slice(2, 6)
+            console.log('result', result);
+        }
+
+        cutText() //output llo-
+
+        //         8. Mətndəki boşluqların sayına görə bölüb array - ə çevirin.
+
+        // 9. Mətnin bütün hərflərini böyük edən bir method yazın
+
+        function upperText() {
+            const text = 'Hello world!'
+            const result = text.toUpperCase()
+            console.log('result', result);
+        }
+
+        upperText() //output HELLO WORLD!
+
+        //         10. Mətnin bütün hərflərini kiçik edən bir method yazın
+
+        function lowerText() {
+            const text = 'Hello world!'
+            const result = text.toLowerCase()
+            console.log('result', result);
+        }
+
+        lowerText() //output hello world!
+
+        //         11. Bir mətn daxil edin və 4 - cü indexdə yerləşən char - ın   'n' hərfi olub olmadığını yoxlayın.
+
+        function checkN() {
+            const text = 'Javascript!'
+            const result = text.charAt(4)
+            if (result === 'n') {
+                console.log('4-cu index n herfidir');
+            } else {
+                console.log('4-cu index n herfi deyil');
+            }
+        }
+
+        checkN() //output 4-cu index n herfidir
+
+        // 12. Bir array teyin et və sonuncu index - dəki dəyər ilə 1 - ci indexdəki dəyərin cəmini başka bir stringdə ekrana çıxar.
+
+        // 13. Bir array təyin et və sonuncu index - ə 'Salam' deyerini menimset
+
+        //         14. Array təyin et və uzunluğunu hesablayan bir alqorihtm yaz.
+
+        // 15. Bir mətndəki sözlərin sayını hesablayan alqorithm yaz.
+
+        function countWord() {
+            const text = 'Men Baki Muhendislik Universiteti telebesiyem!'
+            let splitText = text.split(' ')
+            console.log('count', splitText.length);
+        }
+
+        countWord() // output 5
+
+        // 16. İki random eded teyin et ve onlarin cemini hesablayan alqorithm yaz
+
+
+        function sumRandomNumber() {
+            const number1 = Math.floor(Math.random() * 100)
+            const number2 = Math.floor(Math.random() * 100)
+            console.log('number1', number1);
+            console.log('number2', number2);
+            console.log('sum', number1 + number2);
+        }
+
+        sumRandomNumber()
+
+        //         17. 5 - dən 26 - ya qədər ədədlərin ədədi ortasını tapıb çap edin
+
+        function calculateAvarage() {
+            let avg = 0;
+            let sum = 0;
+            let count = 0;
+            for (let j = 5; j <= 26; j++) {
+                count++
+                sum += j
+            }
+            avg = sum / count
+            console.log('ededi orta: ', avg)
+        }
+
+
+        calculateAvarage() //output: 15.5
+
+        //         18. 10 ilə 100 arasındakı ədədlərdən yalnız cüt olanları mətn formatında ekrana çıxarın
+
+        function evenNumbers() {
+            for (let i = 10; i <= 100; i++) {
+                if (i % 2 == 0) {
+                    console.log('even number: ', String(i))
+                }
+            }
+        }
+
+        evenNumbers()
+
+        //         19. 0 - dan 40 - a qədər ədədlər içərisindən 10 a bölünən ədədləri ekrana çıxarın
+
+        function divisibleByTen() {
+            for (let i = 1; i <= 40; i++) {
+                if (i % 10 === 0) {
+                    console.log('10a bolunen ededler: ', String(i))
+                }
+            }
+        }
+
+        divisibleByTen()
+
+        //         20. Hər hansı bir ədəd daxil edin və onun 3 - ə bölünən olub olmadığını yoxlayan bir alqorithm yazın
+
+
+        function divisibleByThree() {
+            let number = prompt("Eded daxil edin:")
+
+            if (number % 3 === 0) {
+                console.log("3-e bolunur");
+            } else {
+                console.log("3-e bolunur");
+            }
+        }
+
+        // divisibleByThree();
+
+        //         21. 30 ilə 40 arasındakı ədədlərin cəmi ilə hasilinin ədədi ortasını tapın
+
+        function averageSumHasil() {
+            let sum = 0;
+            let hasil = 1;
+
+            for (let i = 30; i <= 40; i++) {
+                sum += i;
+                hasil *= i;
+            }
+
+            console.log("Ededi orta:", (sum + hasil) / 2);
+        }
+
+        averageSumHasil(); // output: 46139857860096190
+
+
+        //         22. 0 - dan 100 - ə qədər ədədlərdən 10 və ya 70 istisna olmaqla digərlərini ekranda string formasında çap edin, hemcinin stringin uzunlugunu gosterin.
+        function printNumbers() {
+            let result = "";
+
+            for (let i = 0; i <= 100; i++) {
+                if (i !== 10 && i !== 70) {
+                    result += i + " ";
+                }
+            }
+
+            console.log(result); // output 0 1 2 3 4 5 6 7 8 9 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31 32 33 34 35 36 37 38 39 40 41 42 43 44 45 46 47 48 49 50 51 52 53 54 55 56 57 58 59 60 61 62 63 64 65 66 67 68 69 71 72 73 74 75 76 77 78 79 80 81 82 83 84 85 86 87 88 89 90 91 92 93 94 95 96 97 98 99 100 
+            console.log("Uzunluq:", result.length); // output 288
+        }
+
+        printNumbers();
+
+
+
+        // 23. 0 - dan 100 - ə qədər ədədlərdən 20dən kiçik və 50 - dən böyük olanların ayrılıqda cəmini hesablayəın
+
+        function sumNumbers() {
+            let smallSum = 0;
+            let bigSum = 0;
+
+            for (let i = 0; i <= 100; i++) {
+                if (i < 20) {
+                    smallSum += i;
+                }
+
+                if (i > 50) {
+                    bigSum += i;
+                }
+            }
+
+            console.log("20-den kiciklerin cemi:", smallSum); //output 190
+            console.log("50-den boyuklerin cemi:", bigSum); //output 3775
+        }
+
+        sumNumbers();
+
+        //         24. İcerisinde 5 string tipli data olan array teyin edin, ve uzunlugu 5 - den yuxari olan datalari baska bir arraya menimsedib ekrana cixarin
+
+        //         25. Bir metn teyin edin ve icerisinde reqem olub olmadigin i yoxlayin, eger reqem varsa hemin reqemleri baska bir stringe menimsedin, diger metnden ise silin.
+
+        // 26. Bir metn teyin edin ve içerisinde olan "i" hərflərinin hamısını silin
+
+        function removeI() {
+            let text = 'Javascript!'
+            let result = text.replaceAll("i", "");
+
+            console.log(result);
+        }
+
+        removeI()
+
+        //         27. Ekrandan bir eded daxil edin ve bu ededin palindrom olub olmadigini yoxlayan alqorithm yazin.
+
+        function palindrom() {
+            let number = prompt("Eded daxil edin:");
+
+            let reverse = number.split("").reverse().join("");
+
+            if (number === reverse) {
+                console.log("Palindromdur");
+            } else {
+                console.log("Palindrom deyil");
+            }
+        }
+
+        // palindrom();
+
+        // 28. Bir deyer gonderen method yazin ve 100 - defe ekranda cap edin
+
+        function repeatValue(value) {
+            for (let i = 0; i < 100; i++) {
+                console.log(value);
+            }
+        }
+
+        repeatValue("Hello world!");
+
+
+        //         29. Iki array teyin edin ve ikisini bir arraya menimsedib console - da cixarin
+
+        //         30. Bir array teyin edin ve icerisinde olan cut ededlerin cemini tapin.
+
+
+    </script>
+</body>
+
+</html>
