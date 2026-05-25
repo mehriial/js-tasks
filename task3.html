@@ -37,6 +37,8 @@
         }
 
         calculateSquare()
+
+
         // 3. Ekrandan daxil edilən(promp) data - nın cüt olub olmadığını yoxlayan metod yazın.
 
         function checkEven() {
@@ -48,7 +50,7 @@
             }
 
         }
-        // checkEven() 
+        checkEven() 
 
         // 4. Ekrandan daxil edən rəqəmin tipinin Nan olub olmadığını yoxlayan method yazın
 
@@ -61,7 +63,7 @@
             }
         }
 
-        // checkNaN()
+        checkNaN()
 
 
         //         5. Bir mətndə olan boşluqların sayını hesablayan function yazın.
@@ -112,6 +114,13 @@
 
         //         8. Mətndəki boşluqların sayına görə bölüb array - ə çevirin.
 
+        function stringToArray() {
+            let text = 'Men Javascript oyrenirem!'
+            console.log('string to array: ', text.split(' '))
+        }
+
+        stringToArray() // output:  ["Men", "Javascript", "oyrenirem!"]
+
         // 9. Mətnin bütün hərflərini böyük edən bir method yazın
 
         function upperText() {
@@ -146,11 +155,35 @@
 
         checkN() //output 4-cu index n herfidir
 
+
+
+
         // 12. Bir array teyin et və sonuncu index - dəki dəyər ilə 1 - ci indexdəki dəyərin cəmini başka bir stringdə ekrana çıxar.
+
+        let numberArray = [10, 25, 45, 20, 65]
+        const newString = String(numberArray[numberArray.length - 1] + numberArray[1])
+        console.log('newString', newString)
+        console.log(typeof newString);
+
+
+
 
         // 13. Bir array təyin et və sonuncu index - ə 'Salam' deyerini menimset
 
+        let nameArray = ['Mehri', 'Gulchin', 'Sema']
+        nameArray.push('Salam')
+        console.log('nameArray', nameArray);
+
+
         //         14. Array təyin et və uzunluğunu hesablayan bir alqorihtm yaz.
+
+        function arrayLengthCalculate() {
+            let nameArray = ['Mehri', 'Gulchin', 'Sema']
+            console.log(nameArray.length);
+
+        }
+
+        arrayLengthCalculate() // output 3
 
         // 15. Bir mətndəki sözlərin sayını hesablayan alqorithm yaz.
 
@@ -229,7 +262,7 @@
             }
         }
 
-        // divisibleByThree();
+        divisibleByThree();
 
         //         21. 30 ilə 40 arasındakı ədədlərin cəmi ilə hasilinin ədədi ortasını tapın
 
@@ -290,7 +323,39 @@
 
         //         24. İcerisinde 5 string tipli data olan array teyin edin, ve uzunlugu 5 - den yuxari olan datalari baska bir arraya menimsedib ekrana cixarin
 
+        let langArray = ['Javascript', 'HTML', 'Tailwind', 'TypeScript', "React"]
+        let fiveLengthArray = []
+
+        for (let index = 0; index < langArray.length; index++) {
+            if (langArray[index].length > 5) {
+                fiveLengthArray.push(langArray[index])
+            }
+            console.log('fiveLengthArray', fiveLengthArray); // output  ["Javascript", "Tailwind", "TypeScript"]
+        }
+
+
+
         //         25. Bir metn teyin edin ve icerisinde reqem olub olmadigin i yoxlayin, eger reqem varsa hemin reqemleri baska bir stringe menimsedin, diger metnden ise silin.
+
+        function checkNumber() {
+            let text = "Salam123";
+            let numbers = "";
+            let letters = "";
+
+            for (let i = 0; i < text.length; i++) {
+                if (!isNaN(text[i]) && text[i] !== ' ') {
+                    numbers += text[i]
+                }
+                else {
+                    letters += text[i];
+                }
+            }
+
+            console.log("reqemler:", numbers); //output 123
+            console.log("metn:", letters); //output Salam
+        }
+
+        checkNumber(); 
 
         // 26. Bir metn teyin edin ve içerisinde olan "i" hərflərinin hamısını silin
 
@@ -317,7 +382,7 @@
             }
         }
 
-        // palindrom();
+        palindrom();
 
         // 28. Bir deyer gonderen method yazin ve 100 - defe ekranda cap edin
 
@@ -332,8 +397,20 @@
 
         //         29. Iki array teyin edin ve ikisini bir arraya menimsedib console - da cixarin
 
-        //         30. Bir array teyin edin ve icerisinde olan cut ededlerin cemini tapin.
+        let firstArray = [1, 2, 3]
+        let secondArray = [4, 5, 6]
+        let thirdArray = firstArray.concat(secondArray)
+        console.log(thirdArray) // output  [1, 2, 3, 4, 5, 6]
 
+        //         30. Bir array teyin edin ve icerisinde olan cut ededlerin cemini tapin.
+        let numbersArray = [1, 2, 3, 4, 5, 6];
+        let sum = 0;
+        for (let i = 0; i < numbersArray.length; i++) {
+            if (numbersArray[i] % 2 === 0) {
+                sum += numbersArray[i];
+            }
+        }
+        console.log('cut ededlerin cemi: ', sum) // output 12
 
     </script>
 </body>
