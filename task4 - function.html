@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TASK 4</title>
+</head>
+
+<body>
+    <h1>Task 4</h1>
+
+
+    <script>
+
+        // Funksiyalar ilə bağlı tapşırıqlar
+
+
+        // İki ədədi toplayan funksiya yazın.
+        function additionNumbers() {
+            let number1 = 42;
+            let number2 = 24;
+            let sum = 0;
+            sum = number1 + number2;
+            console.log('cem', sum);
+        }
+
+        additionNumbers() // 66
+
+
+        // Verilən ədədin cüt və ya tək olduğunu yoxlayan funksiya yazın.
+
+        function checkNumbers(number) {
+            if (number % 2 === 0) {
+                console.log('Eded cutdur')
+            } else {
+                console.log('Eded tekdir')
+            }
+        }
+
+        checkNumbers(20) // Eded cutdur
+
+
+        // Ad qəbul edib salam mesajı qaytaran funksiya yazın.
+
+        function addName() {
+            let name = prompt('Ad daxil edin')
+            if (name) {
+                console.log('ad', name)
+            } else {
+                console.log('ad daxil edilmedi')
+            }
+        }
+        addName()
+
+
+        // Düzbucaqlının sahəsini hesablayan funksiya yazın.
+
+        function calculateRectangleArea(width, length) {
+            let area = 0;
+
+            area = width * length
+            console.log('duzbucaqlinin sahesi = ', area)
+        }
+
+        calculateRectangleArea(20, 5)
+
+
+        // Celsius-u Fahrenheit-ə çevirən funksiya yazın.
+
+        function celsiusToFahrenheit() {
+            let celsius = 20;
+            let fahrenheit = (celsius * 1.8) + 32
+            console.log('fahrenheit = ', fahrenheit);
+        }
+
+        celsiusToFahrenheit()
+
+        // Ədədin kvadratını qaytaran arrow function yazın.
+
+        let funcArrow = (x) => {
+            console.log(`${x} ədədinin kvadratı = `, Math.pow(x, 2))
+        }
+        funcArrow(4)
+        // Verilən string-in uzunluğunu qaytaran funksiya yazın.
+
+        const stringLength = (text) => {
+            console.log(`${text} metninin uzunlugu = `, text.length)
+        }
+
+        stringLength('Javascript!!!')
+
+
+        // İki ədəddən ən böyüyünü tapan funksiya yazın.
+
+        function findMaxNumber(number1, number2) {
+            if (number1 > number2) {
+                console.log('boyuk eded ', number1)
+            } else {
+                console.log('boyuk eded ', number2)
+            }
+        }
+        findMaxNumber(12, 25)
+
+        // Verilən ədədin faktorialını hesablayan funksiya yazın.
+        function calculateFactorial(number) {
+            let result = 1;
+            if (number < 0) {
+                console.log("Menfi ededin faktorialı yoxdur")
+                return;
+            } else {
+                for (i = 1; i <= number; i++) {
+                    result *= i;
+                }
+                console.log(`${number} faktorial = `, result)
+            }
+
+        }
+
+        calculateFactorial(5)
+
+
+        // Verilən string-i tərsinə çevirən funksiya yazın.
+
+        function reverseString(text) {
+            console.log(text.split("").reverse().join(""))
+        }
+        reverseString('Javascript')
+
+
+
+    </script>
+</body>
+
+</html>
