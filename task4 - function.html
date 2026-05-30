@@ -129,6 +129,191 @@
 
 
 
+
+        // Funksiyalar ilə bağlı orta səviyyə tapşırıqları
+        // Verilən array-dəki bütün ədədlərin cəmini reduce istifadə edərək hesablayan funksiya yazın.
+
+        function sumArrayNumbers(arr) {
+            return arr.reduce((acc, current) => {
+                return acc + current;
+            }, 0);
+        }
+
+        let numbers = [1, 2, 3, 4];
+        console.log(sumArrayNumbers(numbers));
+
+
+        // String-də ən çox təkrarlanan hərfi tapan funksiya yazın.
+
+        function getMaxRepeatingChar(text) {
+            if (!text) return "";
+
+            let charMap = {};
+            let maxCount = 0;
+            let maxChar = "";
+
+            for (let char of text) {
+                if (char === ' ') continue;
+
+                charMap[char] = (charMap[char] || 0) + 1
+            }
+
+            for (let char in charMap) {
+                if (charMap[char] > maxCount) {
+                    maxCount = charMap[char]
+                    maxChar = char
+                }
+            }
+
+            return maxChar;
+        }
+
+        console.log(getMaxRepeatingChar("javascript")); // a
+
+
+        // Verilən ədədin sadə olub olmadığını yoxlayan funksiya yazın.
+
+        function checkPrimeNumber(number) {
+            if (number <= 1) return false;
+            if (number === 2) return true;
+            if (number % 2 === 0) return false;
+            if (number % number === 1 || number) {
+
+                let radicand = Math.sqrt(number)
+                for (let i = 3; i < radicand; i += 2) {
+                    if (number % i !== 0) {
+                        return true
+                    } else return false
+                }
+            }
+        }
+
+        console.log(checkPrimeNumber(29));
+        //true
+
+
+        // Fibonacci ardıcıllığının ilk n elementini qaytaran funksiya yazın.
+
+        function fibonacci(n) {
+            if (n <= 0) return;
+            if (n === 1) return [0];
+
+            let arr = [0, 1]
+
+            for (let i = 2; i < n; i++) {
+                arr[i] = arr[i - 1] + arr[i - 2]
+            }
+            console.log(arr);
+        }
+
+        fibonacci(5) // [0,1,1,2,3]
+
+
+        // Verilən string-də neçə söz olduğunu tapan funksiya yazın.
+
+
+        function calculateWordSize(text) {
+            let count = 0;
+            if (text) {
+                count = text.split(' ').length
+                console.log(count);
+
+            }
+        }
+
+        calculateWordSize('Men Javascript oyrenirem!') // 3
+
+        // Callback qəbul edən funksiya yazın.
+
+
+        const toplama = (x, y) => x + y;
+        const vurma = (x, y) => x * y;
+
+        function callbackFunction(x, y, callback) {
+            return callback(x, y);
+        }
+
+        console.log(callbackFunction(10, 20, toplama)); // 30
+        console.log(callbackFunction(10, 20, vurma)); // 200
+
+
+        // Array-dəki yalnız unikal elementləri qaytaran funksiya yazın.
+
+
+        // function uniqueArrayElement(arr) {
+        //     return arr.filter((element, index) => arr.indexOf(element) === index);
+        // }
+
+        // const listArr = [1, 2, 2, 3, 4, 4, 5, 1];
+        // console.log(uniqueArrayElement(listArr));
+
+        function uniqueArrayElement(arr) {
+            return [...new Set(arr)];
+        }
+
+        const listArr = [1, 2, 2, 3, 4, 4, 5, 1];
+        console.log(uniqueArrayElement(listArr));
+
+
+        // Recursive factorial funksiyası yazın.
+
+
+        function recursiveFactorial(x) {
+            if (x === 1) return 1;
+
+            return x * recursiveFactorial(x - 1)
+
+        }
+
+        console.log(recursiveFactorial(5));
+
+
+        // Verilən string-in palindrome olub olmadığını yoxlayan funksiya yazın.
+
+        function checkPalindrom(text) {
+            if (text) {
+                let reverse = text.split('').reverse().join('')
+                if (text === reverse) {
+                    return "palindromdur"
+                } else {
+                    return "palindrom deyil"
+                }
+            }
+        }
+
+        console.log(checkPalindrom('kok')); // palindromdur
+
+
+        // İki array-in ortaq elementlərini tapan funksiya yazın.
+
+        function checkArraysEqualElement(arr1, arr2) {
+            return arr1.filter(x => arr2.includes(x))
+        }
+
+        const arr1 = [1, 2, 3, 4];
+        const arr2 = [3, 4, 5, 6];
+
+        console.log(checkArraysEqualElement(arr1, arr2));
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
     </script>
 </body>
 
