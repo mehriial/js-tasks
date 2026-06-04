@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TASK 4 Obyektler</title>
+</head>
+
+<body>
+    <h1>Task 4 Obyektler</h1>
+
+
+    <script>
+
+        // Obyektlərlə bağlı tapşırıqlar
+        // name, age, city property-ləri olan obyekt yaradın.
+
+
+        const myData = {
+            name: "Mehri",
+            age: 22,
+            city: "Baku"
+        }
+
+
+        // Obyektdən name property-sini console-a çıxardın.
+
+        console.log(myData.name); // Mehri
+
+        // Obyektə yeni job property-si əlavə edin.
+
+        myData.job = 'Frontend developer'
+
+        // Obyektdə age dəyərini dəyişin.
+
+        myData.age = 23
+        // Obyektin bütün key-lərini çap edin. 
+        console.log(Object.keys(myData)); // ["name","age","city","job"]
+
+        // Obyektin bütün value-larını çap edin.
+        console.log(Object.values(myData)); // ['Mehri', 23, 'Baku', 'Frontend developer']
+
+        // Student obyektində average bal hesablayan funksiya yazın.
+
+        const student = {
+            name: 'Mehri',
+            surname: "Alizada",
+            points: [85, 90, 78, 92, 100],
+            calculateAvarage: function () {
+                if (this.points.length === 0) return 0;
+                let sum = this.points.reduce((preVal, crrVal) => preVal + crrVal, 0)
+                let avg = sum / this.points.length
+                return avg
+            }
+        }
+
+        console.log(student.name + " " + student.surname + ' adli telebenin umumi orta bali: ' + student.calculateAvarage());
+
+
+        // Array içində user obyektləri yaradın.
+
+        const users = [
+            {
+                name: 'Lale',
+                age: 23,
+            },
+            {
+                name: 'Jale',
+                age: 23,
+            },
+            {
+                name: 'Nuray',
+                age: 21,
+            },
+            {
+                name: 'Leman',
+                age: 21,
+            },
+        ]
+
+        // Yaşı 22-dən böyük olan user-ləri filter edin.
+
+        console.log(users.filter(x => x.age > 22));
+
+        // [
+        //     {
+        //         "name": "Lale",
+        //         "age": 23
+        //     },
+        //     {
+        //         "name": "Jale",
+        //         "age": 23
+        //     }
+        // ]
+
+
+
+
+        // Məhsul obyektində endirimli qiyməti hesablayın.
+
+        const mehsul = {
+            name: "Telefon",
+            price: 1000,
+            sale: 15,
+            calculateSale: function () {
+                let amount = this.price - (this.price * this.sale) / 100
+                return amount
+            }
+        }
+
+        console.log(mehsul.calculateSale());  // 850
+
+
+
+        // Kitab obyektində müəllif və kitab adını göstərən funksiya yazın.
+
+        let book = {
+            name: "Dorian Gray'in Portreti",
+            author: "Oscar Wilde"
+        }
+
+        // Obyektdə neçə property olduğunu tapın.
+
+        console.log(Object.keys(book).length); // 2
+
+
+        // Obyektin içində nested object yaradın.
+
+        let telebe = {
+            ad: 'Mehri',
+            yas: 22,
+            tehsil: {
+                universitet: 'Baki Muhendislik Universiteti',
+                ixtisas: "Informasiya Tehlukesizliyi",
+                derece: 'Bakalavr'
+            }
+        }
+
+        // Nested object-dən müəyyən dəyəri çıxardın.
+
+        console.log(telebe.tehsil.universitet); //Baki Muhendislik Universiteti
+
+        // Array içindəki obyektlərdən yalnız adları götürən kod yazın.
+
+        const students = [
+            {
+                name: 'Lale',
+                age: 23,
+            },
+            {
+                name: 'Jale',
+                age: 23,
+            },
+            {
+                name: 'Nuray',
+                age: 21,
+            },
+            {
+                name: 'Leman',
+                age: 21,
+            },
+        ]
+
+        let names = students.map(student => student.name)
+        console.log(names); //['Lale', 'Jale', 'Nuray', 'Leman']
+
+
+
+
+
+        //         Obyektlərlə bağlı orta səviyyə tapşırıqları
+        // Obyektin bütün key və value-larını loop ilə çap edin.
+
+        const user = {
+            name: "Ali",
+            surname: "Alizada",
+            age: 23
+        }
+
+        for (let item in user) {
+            console.log(`${item}: ${user[item]}`);
+        }
+    
+
+        // Nested object içindən müəyyən dəyəri çıxarın.
+
+         let studentData = {
+            ad: 'Mehri',
+            yas: 22,
+            tehsil: {
+                universitet: 'Baki Muhendislik Universiteti',
+                ixtisas: "Informasiya Tehlukesizliyi",
+                derece: 'Bakalavr'
+            }
+        }
+
+        console.log(`${studentData.ad}, ${studentData.tehsil.universitet} - nin ${studentData.tehsil.ixtisas} ixtisasinda tehsil alir`);
+        
+
+        // Obyektə dinamik property əlavə edin.
+        // İki obyekti merge edin.
+        // Obyektin boş olub olmadığını yoxlayan funksiya yazın.
+        // Obyektdə ən böyük value-ya sahib property-ni tapın.
+        // Array içindəki obyektləri müəyyən property-yə görə filter edin.
+        // Array içindəki user-ləri yaşa görə sıralayın.
+        // Obyekt içindəki bütün number value-ların cəmini hesablayın.
+        // Obyektin deep copy-sini yaradın.
+        // Məhsullar array-ində ən bahalı məhsulu tapın.
+        // User obyektindən yalnız müəyyən property-ləri götürən funksiya yazın.
+        // Obyekt içində duplicate value-ları tapın.
+        // Nested object-də bütün key-ləri array kimi qaytaran funksiya yazın.
+        // Obyektləri müəyyən property-yə görə qruplaşdırın.
+
+
+
+
+
+
+
+
+
+
+    </script>
+</body>
+
+</html>
