@@ -145,31 +145,6 @@
 
         // String-də ən çox təkrarlanan hərfi tapan funksiya yazın.
 
-        function getMaxRepeatingChar(text) {
-            if (!text) return "";
-
-            let charMap = {};
-            let maxCount = 0;
-            let maxChar = "";
-
-            for (let char of text) {
-                if (char === ' ') continue;
-
-                charMap[char] = (charMap[char] || 0) + 1
-            }
-
-            for (let char in charMap) {
-                if (charMap[char] > maxCount) {
-                    maxCount = charMap[char]
-                    maxChar = char
-                }
-            }
-
-            return maxChar;
-        }
-
-        console.log(getMaxRepeatingChar("javascript")); // a
-
 
         // Verilən ədədin sadə olub olmadığını yoxlayan funksiya yazın.
 
@@ -216,8 +191,6 @@
             let count = 0;
             if (text) {
                 count = text.split(' ').length
-                console.log(count);
-
             }
         }
 
@@ -246,13 +219,6 @@
 
         // const listArr = [1, 2, 2, 3, 4, 4, 5, 1];
         // console.log(uniqueArrayElement(listArr));
-
-        function uniqueArrayElement(arr) {
-            return [...new Set(arr)];
-        }
-
-        const listArr = [1, 2, 2, 3, 4, 4, 5, 1];
-        console.log(uniqueArrayElement(listArr));
 
 
         // Recursive factorial funksiyası yazın.

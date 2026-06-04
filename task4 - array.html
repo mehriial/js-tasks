@@ -1,0 +1,390 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Task 4 Array</title>
+</head>
+
+<body>
+
+    <h1>Array task 4</h1>
+
+
+    <script>
+
+
+        // Array-lərlə bağlı tapşırıqlar
+        // Array-dəki bütün ədədlərin cəmini tapın.
+
+
+        function arrSumNumber() {
+            let arr = [1, 2, 6, 8];
+            return arr.reduce((x, sum) => x + sum, 0)
+        }
+
+        console.log(arrSumNumber()); // 17
+
+
+
+        // Array-dəki ən böyük elementi tapın.
+
+        function maxNumber() {
+            let arr = [4, 9, 16, 23, 25, 62]
+            return arr.reduce((max, x) => max > x ? max : x, arr[0])
+        }
+
+        console.log(maxNumber()); // 62
+
+
+
+        // Array-də neçə element olduğunu tapın.
+        let arrayNumbers = [4, 9]
+        console.log(arrayNumbers.length); // 2
+
+
+        // Array-dəki bütün elementləri console-a yazdırın.
+        for (i = 0; i < arrayNumbers.length; i++) {
+            console.log(arrayNumbers[i]) // 4, 9
+        }
+
+        // Array-dəki bütün ədədləri 2-yə vurub yeni array yaradın.
+
+        let result = arrayNumbers.map(val => val * 2);
+
+        console.log(result); // [8, 18]
+
+        // Array-dəki cüt ədədləri filter edin.
+        arrNumber = [2, 5, 6, 8, 9, 11, 16]
+        let cutEdedler = arrNumber.filter(x => x % 2 === 0);
+        console.log(cutEdedler); // [2,6,8,16]
+
+
+        // Array-dəki tək ədədləri filter edin.
+        let tekEdedler = arrNumber.filter(x => x % 2 !== 0);
+        console.log(tekEdedler); // [5,9,11]
+
+        // String array-ində ən uzun sözü tapın.
+
+        const textArr = ['Salam', 'Men', 'Javascript', 'oyrenirem']
+        let longestWord = "";
+        for (let i = 0; i < textArr.length; i++) {
+            const element = textArr[i];
+            if (element.length > longestWord.length) {
+                longestWord = element;
+            }
+        }
+        console.log(longestWord); // Javascript
+        console.log(longestWord.length); // 10
+
+        // Array-də verilən elementin olub-olmadığını yoxlayın.
+
+        console.log(textArr.includes('Men')); // true
+
+
+        // Array-i tərsinə çevirin.
+        console.log(textArr.reverse()); // ["oyrenirem","Javascript","Men","Salam"]
+
+
+        // Array-dəki mənfi ədədləri silin.
+
+        let numbers = [1, -2, 5, -4, 6, 10, -20]
+        console.log(numbers.filter(x => x > 0));
+
+        let positiveNumbers = []
+        for (let i = 0; i < numbers.length; i++) {
+            if (numbers[i] >= 0) {
+                positiveNumbers.push(numbers[i])
+            }
+        }
+        console.log(positiveNumbers);
+
+
+        // Array-dəki bütün string-ləri böyük hərfə çevirin.
+
+        const mixArr = ['Salam', 12, true, 'Javascript']
+        // for (let i = 0; i < mixArr.length; i++) {
+        //     if (typeof mixArr[i] === 'string') {
+        //         mixArr[i] = mixArr[i].toUpperCase()
+        //     }
+        // }
+        // console.log(mixArr); // ['SALAM', 12, true, 'JAVASCRIPT']
+
+        const upperCaseString = mixArr.map(x => typeof x === 'string' ? x.toUpperCase() : x)
+        console.log(upperCaseString);  // ['SALAM', 12, true, 'JAVASCRIPT']
+
+        // Array-də neçə cüt ədəd olduğunu tapın.
+        function evenNumberCount(arr) {
+            let evenNum = []
+
+            for (let i = 0; i < arr.length; i++) {
+                if (arr[i] % 2 === 0) {
+                    evenNum.push(arr[i])
+                }
+            }
+            return evenNum.length
+        }
+        let numArr = [4, 9, 16, 23, 25, 62]
+        console.log(evenNumberCount(numArr)); // 3
+
+
+        const evenNum = numArr.filter(x => x % 2 === 0).length
+        console.log(evenNum); // 3
+
+
+
+        // Array-dəki ən kiçik elementi tapın.
+
+        let minNum = numArr[0];
+        for (let i = 0; i < numArr.length; i++) {
+            if (minNum > numArr[i]) {
+                minNum = numArr[i]
+            }
+        }
+        console.log(minNum); // 4
+
+        let minNum2 = Math.min(...numArr);
+        console.log(minNum2); // 4
+
+        const minNumMethod = numArr.reduce((min, crr) => min < crr ? min : crr)
+        console.log(minNumMethod); // 4
+
+
+        // Array-də duplicate elementləri silin.
+
+        let arr1 = [1, 2, 2, 3, 4, 4];
+        let uniqueVal = [...new Set(arr1)]
+        console.log(uniqueVal); // [1, 2, 3, 4]
+
+        // let uniqArr = []
+        // for (let i = 0; i < arr1.length; i++) {
+        //     if (!uniqArr.includes(arr1[i])) {
+        //         uniqArr.push(arr1[i])
+        //     }
+        // }
+        // console.log(uniqArr); // [1, 2, 3, 4]
+
+
+        let uniqArrMethod = arr1.filter((element, index) => arr1.indexOf(element) === index)
+        console.log(uniqArrMethod);  // [1, 2, 3, 4]
+
+
+
+
+        // Array-lərlə bağlı orta səviyyə tapşırıqları
+        // Array-də duplicate elementləri tapın.
+
+        let duplicateArrMethod = arr1.filter((element, index) => arr1.indexOf(element) !== index)
+        console.log(duplicateArrMethod);  // [2, 4]
+
+
+        // Array-də ən çox təkrarlanan elementi tapın.
+
+
+        function repeatedArray() {
+            let fruitArrays = ["alma", "armud", "nar", "alma", "nar", "armud", "nar"]
+            const counts = {};
+            let maxElement = fruitArrays[0];
+            let maxCount = 0;
+
+            for (const item of fruitArrays) {
+                counts[item] = (counts[item] || 0) + 1
+                if (counts[item] > maxCount) {
+                    maxCount = counts[item]
+                    maxElement = item
+                }
+            }
+            console.log(maxElement);
+
+        }
+
+        repeatedArray() // 'nar'
+
+        // Array-i artan və azalan sıraya düzün.
+
+        function sortedArray() {
+            const array1 = [2, 20, 52, 46]
+
+            const sortedArrayASC = array1.toSorted((a, b) => a - b)
+            const sortedArrayDESC = array1.toSorted((a, b) => b - a)
+
+            console.log(sortedArrayASC); // [2.20,46,52]
+            console.log(sortedArrayDESC); // [52,46,20,2]
+
+        }
+        sortedArray()
+
+
+        // Array-dəki bütün string-ləri uzunluqlarına görə sıralayın.
+
+
+        function sortStringLength() {
+            let str = ['alma', 'armud', 'nar']
+
+            let ascendingStr = str.sort((a, b) => a.length - b.length)
+            console.log(ascendingStr);
+        }
+
+        sortStringLength() // ['nar', 'alma', 'armud']
+
+
+        // Array-də yalnız müsbət ədədləri saxlayın.
+
+        function onlyPositiveNumbers() {
+            let numbers = [1, 20, 5, -10, -25]
+            let positiveNumber = new Array
+            for (let i = 0; i < numbers.length; i++) {
+                if (numbers[i] > 0) {
+                    positiveNumber[i] = numbers[i]
+                }
+
+            }
+            console.log(positiveNumber);
+
+        }
+        onlyPositiveNumbers() // [1, 20, 5]
+
+        // İki array-i birləşdirib duplicate-ləri silin.
+
+        function concatArrayRemoveDuplicate() {
+            let arr1 = [1, 2, 3, 4]
+            let arr2 = [3, 4, 5, 6]
+
+            let arr3 = arr1.concat(arr2)
+            return arr3.filter((val, index) => arr3.indexOf(val) === index)
+
+        }
+
+        console.log(concatArrayRemoveDuplicate()); // [1, 2, 3, 4, 5, 6]
+
+
+        // Array-də ikinci ən böyük elementi tapın.
+
+
+        function secondMaxNumber() {
+            let numbers = [1, 2, 4, 8, 10]
+            let sortedAsc = numbers.toSorted((a, b) => a - b)
+            let secMaxNum = sortedAsc[sortedAsc.length - 2]
+            return secMaxNum
+        }
+        console.log(secondMaxNumber()); // 8
+
+        // Nested array-i flatten edin.
+
+        const nested = [1, [2, 3], [4, 5]];
+        const flat = nested.flat(3);
+        console.log(flat); // [1, 2, 3, 4, 5]
+
+
+        // Array-dəki obyektlərdən müəyyən property-ni götürən kod yazın.
+
+        let objArray = [
+            { name: 'Jale', age: 23 },
+            { name: 'Mehri', age: 23 },
+            { name: 'Lale', age: 23 },
+            { name: 'Nuray', age: 21 },
+            { name: 'Leman', age: 21 },
+        ]
+
+        console.log(objArray.map(val => val.name)) //   ['Jale', 'Mehri', 'Lale', 'Nuray', 'Leman']
+
+
+
+        // Array-də toplamı müəyyən ədədə bərabər olan iki elementi tapın.
+
+
+        let num = [5, 7, 9, 3]
+        let val = 12
+        for (let i = 0; i < num.length; i++) {
+            for (let j = i + 1; j < num.length; j++) {
+                if (num[i] + num[j] === 12) {
+                    console.log(num[i], num[j]); // 9 3    5 7
+                }
+            }
+
+        }
+
+        // Array-də hər elementin neçə dəfə təkrarlandığını hesablayın.
+
+        function repElement() {
+            let array = [1, 1, 2, 3, 4, 5, 1, 2, 6, 8, 1, 2]
+            let counts = {};
+
+            for (let i = 0; i < array.length; i++) {
+                element = array[i]
+                if (counts[element]) {
+                    counts[element] += 1;
+                } else {
+                    counts[element] = 1;
+                }
+            }
+
+            console.log('counts', counts); // {1: 4, 2: 3, 3: 1, 4: 1, 5: 1, 6: 1, 8: 1}
+
+        }
+
+        repElement()
+
+        let elements = [1, 1, 2, 3, 4, 5, 1, 2, 6, 8, 1, 2]
+
+        const count = elements.reduce((acc, x) => {
+            acc[x] = (acc[x] || 0) + 1;
+            return acc
+        }, {});
+        console.log('counts', count); // {1: 4, 2: 3, 3: 1, 4: 1, 5: 1, 6: 1, 8: 1}
+
+
+
+        // Array-də string və number tiplərini ayrı-ayrı array-lərə bölün.
+
+
+        function typeDifArray() {
+            let array = [1, 2, 'html', 'css', 5]
+            let strArr = new Array;
+            let numArr = new Array;
+            for (let i = 0; i < array.length; i++) {
+                if (!isNaN(array[i]) && array[i] !== ' ') {
+                    numArr.push(array[i])
+                } else {
+                    strArr.push(array[i])
+                }
+            }
+
+            console.log('string', strArr) // ['html', 'css']
+            console.log('number', numArr) // [1 ,2, 5]
+        }
+
+        typeDifArray()
+
+        // Verilmiş array-də ən uzun string-i tapın.
+
+        function longestString() {
+            let array = ['html', 'css', 'javascript', 'react', 'tailwind']
+            return array.reduce((max, crr) => {
+                return crr.length > max.length ? crr : max
+            }, '');
+        }
+        console.log(longestString()); // javascript
+
+        // Array-də yalnız tək indeksdə olan elementləri qaytarın.
+
+        const arr = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+        console.log(arr.filter((x, index) => index % 2 !== 0)); // [1, 3, 5, 7, 9]
+        const oddNum = []
+        for (let i = 1; i < arr.length; i += 2) {
+            oddNum.push(arr[i])
+        }
+
+        console.log('odd', oddNum); // [1, 3, 5, 7, 9]
+
+
+
+        // Array-də elementləri random sıraya salın.
+
+
+
+    </script>
+</body>
+
+</html>
