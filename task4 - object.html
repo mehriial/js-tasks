@@ -181,11 +181,11 @@
         for (let item in user) {
             console.log(`${item}: ${user[item]}`);
         }
-    
+
 
         // Nested object içindən müəyyən dəyəri çıxarın.
 
-         let studentData = {
+        let studentData = {
             ad: 'Mehri',
             yas: 22,
             tehsil: {
@@ -195,23 +195,295 @@
             }
         }
 
-        console.log(`${studentData.ad}, ${studentData.tehsil.universitet} - nin ${studentData.tehsil.ixtisas} ixtisasinda tehsil alir`);
-        
+        console.log(`${studentData.ad}, ${studentData.tehsil.universitet} - nin ${studentData.tehsil.ixtisas} ixtisasinda tehsil alir`); // Mehri, Baki Muhendislik Universiteti - nin Informasiya Tehlukesizliyi ixtisasinda tehsil alir
+
 
         // Obyektə dinamik property əlavə edin.
+
+        const user1 = {
+            name: 'Ali'
+        }
+        const surnameKey = 'surname'
+        const surnameValue = 'Alizada'
+        user1[surnameKey] = surnameValue
+        console.log(user1); // {name: 'Ali', surname: 'Alizada'}
+
+
         // İki obyekti merge edin.
+
+        let user2 = {
+            name: "Mehri",
+            surname: "Alizada",
+            age: 23
+        }
+
+        const mergeObj = { ...user1, ...user2 }
+        console.log(mergeObj); // {name: 'Mehri', surname: 'Alizada', age: 23}
+
+
         // Obyektin boş olub olmadığını yoxlayan funksiya yazın.
+
+
+        function isEmptyObj(obj) {
+            for (const key in obj) {
+                if (Object.prototype.hasOwnProperty.call(obj, key)) {
+                    return false;
+                }
+            }
+            return true;
+        }
+        console.log(isEmptyObj({})); // true
+        console.log(isEmptyObj({ name: "Mehri" })); // false
+
+
         // Obyektdə ən böyük value-ya sahib property-ni tapın.
+        const obj = { a: 10, b: 55, c: 20 };
+        let objArr = Object.entries(obj)
+        console.log(objArr.reduce((prev, crr) => prev[1] > crr[1] ? prev : crr)); // ['b', 55]
+
+
+
         // Array içindəki obyektləri müəyyən property-yə görə filter edin.
+
+        let telebeler = [
+            {
+                id: 1,
+                name: 'Mehri',
+                university: "BMU",
+                degree: "bachelor"
+            },
+            {
+                id: 2,
+                name: 'Aynur',
+                university: "BMU",
+                degree: "bachelor"
+            },
+            {
+                id: 3,
+                name: 'Nuray',
+                university: "BMU",
+                degree: "master"
+            },
+            {
+                id: 4,
+                name: 'Ayla',
+                university: "BMU",
+                degree: "master"
+            },
+        ]
+
+        masterList = telebeler.filter((x) => x.degree === 'master')
+        console.log(masterList);
+        //         [
+        //     {
+        //         "id": 3,
+        //         "name": "Nuray",
+        //         "university": "BMU",
+        //         "degree": "master"
+        //     },
+        //     {
+        //         "id": 4,
+        //         "name": "Ayla",
+        //         "university": "BMU",
+        //         "degree": "master"
+        //     }
+        // ]
+
         // Array içindəki user-ləri yaşa görə sıralayın.
+
+        let userAge = [
+            {
+                name: 'Mehri',
+                age: 22
+            },
+            {
+                name: 'Lale',
+                age: 23
+            },
+            {
+                name: 'Nermin',
+                age: 20
+            }
+        ]
+
+        userAge.sort((a, b) => a.age - b.age);
+        console.log(userAge);
+        // [
+        //     {
+        //         "name": "Nermin",
+        //         "age": 20
+        //     },
+        //     {
+        //         "name": "Mehri",
+        //         "age": 22
+        //     },
+        //     {
+        //         "name": "Lale",
+        //         "age": 23
+        //     }
+        // ]
+
         // Obyekt içindəki bütün number value-ların cəmini hesablayın.
+
+        let numObj = { a: 20, b: 30, c: 50 }
+        let numData = Object.values(numObj)
+        console.log(numData.reduce((max, crr) => max + crr, 0)); // 100
+
+
         // Obyektin deep copy-sini yaradın.
+
+        let numObj2 = { ...numObj }
+        console.log(numObj2); // {a: 20, b: 30, c: 50}
+
+
         // Məhsullar array-ində ən bahalı məhsulu tapın.
+
+        let products = [
+            {
+                name: "phone",
+                price: 3000
+            },
+            {
+                name: 'headphones',
+                price: 200
+            },
+            {
+                name: "computer",
+                price: 5000
+            }
+        ]
+
+        let maxPrice = products.reduce((max, val) => max > val ? max : val)
+        console.log(maxPrice); //  {name: 'computer', price: 5000}
+
         // User obyektindən yalnız müəyyən property-ləri götürən funksiya yazın.
+        const getProp = (obj, keys) => {
+            return keys.reduce((acc, key) => {
+                if (key in obj) acc[key] = obj[key];
+                return acc;
+            }, {});
+        };
+        const user3 = { name: 'Mehri', age: 22, email: "test@gmail.com" }
+
+        const selectedData = getProp(user3, ['name', 'email']); // {name: 'Mehri', email: 'test@gmail.com'}
+        console.log(selectedData);
+
         // Obyekt içində duplicate value-ları tapın.
+
+        function duplicateValueObj(obj) {
+            let valueMap = Object.entries(obj).reduce((acc, [key, value]) => {
+                if (!acc[value]) {
+                    acc[value] = [];
+                }
+                acc[value].push(key);
+                return acc;
+            }, {});
+
+            const duplicates = {};
+            for (const [value, keys] of Object.entries(valueMap)) {
+
+                if (keys.length > 1) {
+                    duplicates[value] = keys;
+                }
+            }
+
+            return Object.keys(duplicates);
+        }
+
+        const userRoles = {
+            user1: "admin",
+            user2: "editor",
+            user3: "admin",
+            user4: "guest",
+            user5: "editor"
+        };
+        console.log(duplicateValueObj(userRoles));//['admin', 'editor']
+
+
         // Nested object-də bütün key-ləri array kimi qaytaran funksiya yazın.
+
+
+        const getAllKeys = (obj) => {
+            let keys = [];
+
+            for (const key in obj) {
+                keys.push(key)
+
+                if (typeof obj[key] === 'object' && obj[key] !== null && !Array.isArray(obj[key])) {
+                    keys = keys.concat(getAllKeys(obj[key]))
+                }
+            }
+
+            return keys;
+        };
+
+        const userProfile = {
+            id: 1,
+            info: {
+                name: "Mehri",
+                age: 22,
+                contacts: {
+                    email: "test@gmail.com",
+                    phone: "123456"
+                }
+            },
+            role: "admin"
+        };
+
+        console.log(getAllKeys(userProfile)); //['id', 'info', 'name', 'age', 'contacts', 'email', 'phone', 'role']
+
+
+
         // Obyektləri müəyyən property-yə görə qruplaşdırın.
 
+        const employees = [
+            { name: "Ali", city: "Baku", department: "IT" },
+            { name: "Mehri", city: "Ganja", department: "HR" },
+            { name: "Emin", city: "Baku", department: "HR" },
+            { name: "Lala", city: "Baku", department: "IT" }
+        ];
+
+        const groupBy = (array, property) => {
+            return array.reduce((acc, obj) => {
+                const key = obj[property];
+
+                if (!acc[key]) {
+                    acc[key] = [];
+                }
+
+                acc[key].push(obj);
+                return acc;
+            }, {});
+        };
+
+        console.log(groupBy(employees, 'city'));
+
+        // {
+        //     "Baku": [
+        //         {
+        //             "name": "Ali",
+        //             "city": "Baku",
+        //             "department": "IT"
+        //         },
+        //         {
+        //             "name": "Emin",
+        //             "city": "Baku",
+        //             "department": "HR"
+        //         },
+        //         {
+        //             "name": "Lala",
+        //             "city": "Baku",
+        //             "department": "IT"
+        //         }
+        //     ],
+        //     "Ganja": [
+        //             {
+        //                 "name": "Mehri",
+        //                 "city": "Ganja",
+        //                 "department": "HR"
+        //             }
+        //         ]
+        // }
 
 
 
