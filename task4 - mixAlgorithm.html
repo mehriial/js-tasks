@@ -191,25 +191,231 @@
 
         //         Qarışıq orta səviyyə tapşırıqları
         // Verilən cümlədə hər sözün ilk hərfini böyük edən funksiya yazın.
+
+        function capitalStr(str) {
+            return str
+                .split(" ")
+                .map(word => word.charAt(0).toUpperCase() + word.slice(1))
+                .join(" ");
+        }
+
+        console.log(capitalStr('salam, men frontend oyrenirem')); // Salam, Men Frontend Oyrenirem
+
+
         // Verilən string-də hərflərin sayını obyekt şəklində qaytaran funksiya yazın.
         // Calculator obyekt yaradın (topla, çıx, vur, böl metodları ilə).
+
+
+
+        const calculator = {
+            add: (a, b) => a + b,
+            sub: (a, b) => a - b,
+            mul: (a, b) => a * b,
+            div: (a, b) => b !== 0 ? a / b : "error"
+        };
+
+        console.log(calculator.add(10, 5)); // 15
+
+
         // Array-də yalnız palindrome sözləri filter edin.
+
+        function isPalindrome(word) {
+            return word === word.split("").reverse().join("");
+        }
+
+        const arrStr = ["level", "hello", "js"];
+
+        const result = arrStr.filter(isPalindrome);
+
+        console.log(result); // ['level']
+
+
         // Verilən tarixdən neçə gün keçdiyini hesablayan funksiya yazın.
+
+        function daysPassed(dateStr) {
+            const date = new Date(dateStr)
+            const now = new Date();
+            const diff = now - date;
+            return Math.floor(diff / (1000 * 60 * 60 * 24));
+        }
+        console.log(daysPassed("2026-06-11")) // 1
+
         // Todo list array-i yaradın və:
         // yeni task əlavə edin
         // task silin
         // tamamlananları filter edin
+
+        let todoList = [];
+
+        function addTask(task) {
+            todoList.push({ task, done: false });
+        }
+
+        function removeTask(task) {
+            todoList = todoList.filter(t => t.task !== task);
+        }
+
+        function completedTasks() {
+            return todoList.filter(t => t.done);
+        }
+
+
         // Shopping cart üçün:
         // ümumi qiyməti hesablayın
         // ən bahalı məhsulu tapın
         // endirim tətbiq edin
+
+
+        const cart = [
+            { name: "Book", price: 20 },
+            { name: "Pen", price: 5 },
+            { name: "Bag", price: 50 }
+        ];
+
+        function totalPrice(cart) {
+            return cart.reduce((sum, item) => sum + item.price, 0)
+        }
+
+        console.log(totalPrice(cart)); // 75
+
+        function expensiveProduct(cart) {
+            return cart.reduce((max, item) => item.price > max ? item.price : max)
+        }
+
+        console.log(expensiveProduct(cart));  // {name: 'Book', price: 20}
+
+        function discountPrice(percent) {
+            return cart.map(item => ({
+                ...item,
+                price: item.price - (item.price * percent / 100)
+            }))
+
+        }
+        console.log(discountPrice(20));
+
+        // [
+        //     {
+        //         "name": "Book",
+        //         "price": 16
+        //     },
+        //     {
+        //         "name": "Pen",
+        //         "price": 4
+        //     },
+        //     {
+        //         "name": "Bag",
+        //         "price": 40
+        //     }
+        // ]
+
+
         // İstifadəçiləri yaş qruplarına bölün:
         // {
         //   young: [],
         //   adult: [],
         //   old: []
         // }
+
+
+
+        const users = [
+            { name: "Ali", age: 15 },
+            { name: "Aysel", age: 22 },
+            { name: "Murad", age: 35 },
+            { name: "Nigar", age: 67 },
+            { name: "Elvin", age: 12 },
+            { name: "Kamal", age: 70 }
+        ];
+
+        function groupByUsers(users) {
+            return {
+                young: users.filter(item => item.age < 18),
+                adult: users.filter(u => u.age >= 18 && u.age < 60),
+                old: users.filter(u => u.age >= 60)
+            }
+
+        }
+
+        // function groupUsers(users) {
+        //     const result = {
+        //         young: [],
+        //         adult: [],
+        //         old: []
+        //     };
+
+        //     for (const user of users) {
+        //         if (user.age < 18) {
+        //             result.young.push(user);
+        //         } else if (user.age < 60) {
+        //             result.adult.push(user);
+        //         } else {
+        //             result.old.push(user);
+        //         }
+        //     }
+
+        //     return result;
+        // }
+
+        console.log(groupByUsers(users));
+        // {
+        //     "young": [
+        //         {
+        //             "name": "Ali",
+        //             "age": 15
+        //         },
+        //         {
+        //             "name": "Elvin",
+        //             "age": 12
+        //         }
+        //     ],
+        //         "adult": [
+        //             {
+        //                 "name": "Aysel",
+        //                 "age": 22
+        //             },
+        //             {
+        //                 "name": "Murad",
+        //                 "age": 35
+        //             }
+        //         ],
+        //             "old": [
+        //                 {
+        //                     "name": "Nigar",
+        //                     "age": 67
+        //                 },
+        //                 {
+        //                     "name": "Kamal",
+        //                     "age": 70
+        //                 }
+        //             ]
+        // }
+
+
+
         // Verilən string-də balanslı mötərizə olub olmadığını yoxlayın.
+
+
+        function isBalanced(str) {
+            let count = 0;
+
+            for (let char of str) {
+                if (char === '(') {
+                    count++
+                } else if (char === ')') {
+                    count--
+                }
+
+                if (count < 0) {
+                    return false
+                }
+            }
+            return count === 0
+        }
+
+        console.log(isBalanced("(())")); // true
+        console.log(isBalanced("(()"));  // false
+        console.log(isBalanced("())"));  // false        
+
         // Array-dəki obyektləri id-yə görə obyekt formatına çevirin.
         // [
         //   { id: 1, name: "Ali" }
@@ -217,6 +423,23 @@
         // {
         //   1: { id: 1, name: "Ali" }
         // }
+
+
+        function arrToObj(arr) {
+            return arr.reduce((acc, item) => {
+                acc[item.id] = item
+                return acc
+            }, {})
+        }
+        console.log(arrToObj([
+            { id: 1, name: "Ali" }
+        ]));
+
+        // {
+        //   1: { id: 1, name: "Ali" }
+        // }
+
+
 
     </script>
 
